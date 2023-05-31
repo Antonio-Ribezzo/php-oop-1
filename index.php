@@ -1,44 +1,25 @@
 <?php
-
-class Movie{
-    // proprietà
-    public $name;
-    public $year_of_release;
-    public $category=[];
-    public $director;
-
-    // costruttore
-    function __construct($name,$year_of_release,array $category,$director){
-        $this->name = $name;
-        $this->year_of_release = $year_of_release;
-        $this->category = $category;
-        $this->director = $director;
-    }
-
-    // metodi
-    function printFilm(){
-        echo "$this->name è un film del $this->year_of_release di genere ";
-        foreach($this->category as $key => $value){
-            echo "$value ";
-          }
-        echo " diretto da $this->director <br>";
-    }
-}
-
-// istanza 1
-$film1 = new Movie("Pulp Fiction","1994",["Crime", "Drama","Thriller", "Comedy"],"Quentin Tarantino");
-$film1->printFilm();
-
-// istanza 2
-$film2 = new Movie("Jurassic Park","1993",["Adventure", "Fantasy"],"Steven Spielberg");
-$film2->printFilm();
+require_once __DIR__ . '/database/db.php';
+require_once __DIR__ . '/models/movie.php';
+require_once __DIR__ . '/models/category.php';
+?>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+       foreach($arrayMovie as $el) { 
+        echo "$el->name è un film del $el->year_of_release diretto da $el->director. <br>";
+     } 
+     ?>
+</body>
+</html>
 
 
-
-
-
-
-
-?> 
